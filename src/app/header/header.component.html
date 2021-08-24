@@ -1,0 +1,39 @@
+<nav class="navbar  navbar-expand-lg navbar-light bg-light ">
+    
+   <div class="container-fluid">
+       <a href="#"  class="navbar-brand">Recipe Book</a>
+            <button (click)="toggleCollapsed()" class="navbar-toggle" type="button"
+             aria-expanded="false" aria-label="Toggle navigation" >
+            <span  class="navbar-toggler-icon"></span>
+            </button>
+           
+        
+
+        <div id="navbarSupportedContent"  [ngClass]="{'collapse' : collapsed, 'navbar-collapse': true}">
+            <ul class=" navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" routerLinkActive="active"><a  class="nav-link"  routerLink="/recipes" 
+                *ngIf="isAuthenticated">Recipes</a></li>
+                <li class="nav-item" routerLinkActive="active" ><a class="nav-link"  routerLink="/auth" 
+                *ngIf="!isAuthenticated">Authenticate</a></li>
+                <li class="nav-item" routerLinkActive="active" ><a class="nav-link"  routerLink="/shopping-list" >shopping list</a></li>
+            </ul>
+            <div class="d-flex dropdown">
+               
+                    <a style="cursor: pointer;" class="nav-link"
+                    *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
+                
+                <a class="nav-link  dropdown-toggle"  id="navbarDropdown" role="button" 
+                data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">Manage</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" appDropdown>
+                        <li ><a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">save Data</a></li>
+                        <li ><a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()" >Fetch Data</a></li>
+                        <!-- <li><hr class="dropdown-divider"></li>
+                       <li ><a class="dropdown-item" >Delete Data</a></li>-->
+                    </ul>
+                
+
+            </div>
+
+        </div>
+    </div>
+</nav>

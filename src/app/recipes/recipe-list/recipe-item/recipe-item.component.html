@@ -1,0 +1,21 @@
+
+ <a 
+    style="cursor: pointer;"
+    class="d-flex text-decoration-none"
+    [routerLink]="[index]"
+    routerLinkActive="active-link" >
+    <div class="card text-dark">
+        <div class="row card-body">
+        <div class="col-9">
+            <h4 class="card-title">{{recipe.name}}</h4>
+            <p class="card-text">{{recipe.description}}</p>
+        </div>
+        <div class="col-3 d-flex align-items-center">
+            <img class="img-fluid rounded"
+                [src]="recipe.imagePath"
+                alt="{{recipe.name}}">
+            
+        </div>
+        </div>
+    </div>
+</a>
